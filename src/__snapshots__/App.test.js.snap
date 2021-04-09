@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders learn react link 1`] = `
+<DocumentFragment>
+  <div>
+    <div>
+      Start date
+    </div>
+    <input
+      id="start_date"
+      type="date"
+    />
+    <div>
+      End date
+    </div>
+    <input
+      id="end_date"
+      type="date"
+    />
+    <button>
+      📅
+    </button>
+    <div />
+  </div>
+</DocumentFragment>
+`;
