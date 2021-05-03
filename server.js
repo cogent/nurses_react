@@ -22,24 +22,24 @@ app.get('/roster', (req, res) => {
   const shifts = []
   for (let i = 0; i < numberOfShifts; i++) {
     shifts.push({
-      date: start.add(i, 'days'),
+      date: start.add(Math.floor(i / 3), 'days'),
       type: shiftTypes[i % 3],
-      nurses: getNurses(i, numberOfDays)
+      nurses: getNurses(i * 5)
     })
   }
 
   res.send(shifts)
 })
 
-function getNurses(index, numberOfDays) {
+function getNurses(startIndex) {
   const nurses = []
-  for (let i = 0; i < 5; i++) {
-    const nurseIndex = (index + i * numberOfDays) % allNurses.length
+  for (let i = startIndex; i < startIndex + 5; i++) {
+    const nurseIndex = i % allNurses.length
     nurses.push(allNurses[nurseIndex])
   }
   return nurses
 }
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
+  console.log(`Nurses app listening at http://localhost:${port}`)
 })
